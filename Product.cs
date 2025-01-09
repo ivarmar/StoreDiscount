@@ -19,7 +19,7 @@ namespace StoreDiscount
 
         public string ProductInfo()
         {
-            return $"Name: {Name}\nIn Stock: {Inventory}\nPrice: {Price} gold\nDiscount: {Discounts()}";
+            return $"Name: {Name}\nIn Stock: {Inventory}\nPrice: {Price} gold\nDiscount: {Discounts()} gold";
         }
 
         public int Discounts()

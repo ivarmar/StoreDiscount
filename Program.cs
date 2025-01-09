@@ -12,8 +12,8 @@ class Program
     {
         Product backpack = new Product("Backpack", 100, 60);
         Product tent = new Product(name: "Tent", inventory: 30, price: 100); // bare testet om det er
-        Product water = new Product("Water", 75, 1);                         // forkjell fra de uten "inlined"
-        Product pie = new Product("Meat-Pie", 4, 5);                      //PS: tror ikke det bare lettere å holde styr med.
+        Product water = new Product("Water", 75, 5);                         // forkjell fra de uten "inlined"
+        Product pie = new Product("Meat-Pie", 4, 10);                      //PS: tror ikke det bare lettere å holde styr med.
         bool inShop = true;
         while (inShop)
         {
@@ -44,6 +44,7 @@ class Program
                     _ => "We dont have that product sorry"
                 };
                 Console.WriteLine($"{productName}");
+                Console.ReadKey();
 
             }
         }
