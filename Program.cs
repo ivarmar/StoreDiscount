@@ -11,37 +11,41 @@ class Program
     static void Main(string[] args)
     {
         Product backpack = new Product("Backpack", 100, 60);
-        Product tent = new Product(name: "Tent", inventory: 10, price: 100); // bare testet om det er
-        Product water = new Product("Water", 15, 1);                         // forkjell fra de uten "inlined"
+        Product tent = new Product(name: "Tent", inventory: 30, price: 100); // bare testet om det er
+        Product water = new Product("Water", 75, 1);                         // forkjell fra de uten "inlined"
         Product pie = new Product("Meat-Pie", 4, 5);                      //PS: tror ikke det bare lettere å holde styr med.
-
-        backpack.Discounts();
-
-        ShopMenu();
-
-        void ShopMenu()
+        bool inShop = true;
+        while (inShop)
         {
-            Console.WriteLine("Welcome to the shop! please select a product.");
-            Console.WriteLine("---------------------------------------------------------");
-            Console.WriteLine("1. A lightweight backpack perfect for an adventure!");
-            Console.WriteLine("---------------------------------------------------------");
-            Console.WriteLine("2. Tent for 1 person, very light. NB: very easy to spot");
-            Console.WriteLine("---------------------------------------------------------");
-            Console.WriteLine("3. Water, essential for anything to live.");
-            Console.WriteLine("---------------------------------------------------------");
-            Console.WriteLine("4. Freshly baked pie, we only have meat-pies right now");
-            Console.WriteLine("---------------------------------------------------------");
-            Console.Write("What would you like? ");
-            var userInput = Convert.ToInt32(Console.ReadLine());
-            object productName = userInput switch
+
+
+            ShopMenu();
+
+            void ShopMenu()
             {
-                1 => backpack.ProductInfo(),
-                2 => tent.ProductInfo(),
-                3 => water.ProductInfo(),
-                4 => pie.ProductInfo(),
-                _ => "We dont have that product sorry"
-            };
-            Console.WriteLine($"{productName} \nHow many would you like?");
+                Console.WriteLine("Welcome to the shop! please select a product to see the inventory.");
+                Console.WriteLine("---------------------------------------------------------");
+                Console.WriteLine("1. A lightweight backpack perfect for an adventure!");
+                Console.WriteLine("---------------------------------------------------------");
+                Console.WriteLine("2. Tent for 1 person, very light. NB: very easy to spot");
+                Console.WriteLine("---------------------------------------------------------");
+                Console.WriteLine("3. Water, essential for anything to live.");
+                Console.WriteLine("---------------------------------------------------------");
+                Console.WriteLine("4. Freshly baked pie, we only have meat-pies right now");
+                Console.WriteLine("---------------------------------------------------------");
+                Console.Write("What would you like? ");
+                var userInput = Convert.ToInt32(Console.ReadLine());
+                object productName = userInput switch
+                {
+                    1 => backpack.ProductInfo(),
+                    2 => tent.ProductInfo(),
+                    3 => water.ProductInfo(),
+                    4 => pie.ProductInfo(),
+                    _ => "We dont have that product sorry"
+                };
+                Console.WriteLine($"{productName}");
+
+            }
         }
     }
 }
